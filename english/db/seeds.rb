@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Student.destroy_all
+Language.destroy_all
+
+mark = Student.create(name:"Mark", age:28, admin:false)
+johnathan = Student.create(name:"Johnathan", age:28, admin:true)
+
+english = Language.create(language:"English")
+spanish = Language.create(language:"Spanish")
+french = Language.create(language:"French")
