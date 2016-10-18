@@ -9,6 +9,18 @@
   </head>
 
   <body>
+
+  <header>
+    <nav class="nav">
+      <a href="<%= students_path %>" id="logo">Company</a>
+      <a href="<%= students_path %>">Instructors</a>
+      <a href="<%= new_student_path %>">Sign Up</a>
+      <a href="#">Login</a>
+
+    </nav>
+  </header>
+
+
     <%= yield %>
   </body>
 </html>

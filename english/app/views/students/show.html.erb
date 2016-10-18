@@ -1,0 +1,14 @@
+<h2><%= @student.name %></h2>
+
+<%= link_to "Edit", edit_student_path %>
+
+
+<% if @proficiencies.any? %>
+<p>Fluent In</p>
+<% @proficiencies.each do |proficiency| %>
+  <p><%= proficiency.language.language %>: <%= proficiency.years_exp %> years</p>
+  <p></p>
+  <% end %>
+  <% else %>
+    <%= link_to "Add proficiency", new_student_proficiency_path(@student) %>
+<% end %>
