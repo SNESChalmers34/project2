@@ -1,0 +1,14 @@
+<%= form_for [@student, @proficiency] do |f| %>
+
+  <%= f.check_box :want_to_learn %>
+  <%= f.label :want_to_learn %>
+
+  <%= f.label :language %>
+  <%= f.collection_select :language_learn, Language.all, :language, :language %>
+
+  <%= f.label :reason %>
+  <%= f.text_field :reason %>
+
+  <%= f.submit %>
+
+<% end %>

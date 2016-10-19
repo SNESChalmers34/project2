@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015181600) do
+ActiveRecord::Schema.define(version: 20161019183506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,14 +23,11 @@ ActiveRecord::Schema.define(version: 20161015181600) do
 
   create_table "proficiencies", force: :cascade do |t|
     t.integer  "student_id"
-    t.integer  "language_id"
-    t.boolean  "fluent_in"
     t.boolean  "want_to_learn"
-    t.integer  "years_exp"
     t.string   "reason"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["language_id"], name: "index_proficiencies_on_language_id", using: :btree
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "language_learn"
     t.index ["student_id"], name: "index_proficiencies_on_student_id", using: :btree
   end
 
@@ -40,6 +37,7 @@ ActiveRecord::Schema.define(version: 20161015181600) do
     t.boolean  "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "fluencies"
   end
 
 end

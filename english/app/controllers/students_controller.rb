@@ -11,12 +11,13 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
-    @student.languages.build
     @languages = Language.all
   end
 
+
   def create
-    @student = Student.create(student_params)
+    binding.pry
+    @student = Student.create(student_params.merge(:fluencies => fluencies))
 
     @student.save
 
@@ -32,12 +33,6 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @student.update(student_params)
 
-    if params[:English]
-      @english = Language.find(params[:English])
-      @proficiency = Proficiency.create(student: @student, language: @english)
-    else
-      @proficiency = Proficiency.destroy
-    end
 
     redirect_to student_path
   end
@@ -46,6 +41,9 @@ class StudentsController < ApplicationController
 
   end
 
+  def fluencies
+    params[:student][:fluencies].reject{|e| e == "0"}.join(", ")
+  end
 
   private
   def student_params

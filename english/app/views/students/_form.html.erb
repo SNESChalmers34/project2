@@ -6,7 +6,12 @@
   <%= f.label :age %><br>
   <%= f.text_field :age %><br>
 
+  <% @languages.each do |language| %>
+    <label for=""><%= language.language %>
+      <%= check_box :student, :fluencies, {:multiple => true}, language.language %><br>
+    </label>
 
+  <% end %>
 
   <%= f.submit %>
 
