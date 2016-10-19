@@ -1,7 +1,17 @@
+<div class="container">
 <h2>Instructors</h2>
 
 <% @students.each do |student| %>
-
-    <%= link_to student.name, student_path(student) %>
+  <% if student.admin %>
+    <div>
+      <p>Instructors: <%= link_to student.name, student_path(student) %></p>
+    </div>
+  <% else %>
+    <div>
+      <p>Students: <%= link_to student.name, student_path(student) %></p>
+    </div>
+  <% end %>
 
 <% end %>
+
+</div> <!--container  -->

@@ -16,7 +16,6 @@ class StudentsController < ApplicationController
 
 
   def create
-    binding.pry
     @student = Student.create(student_params.merge(:fluencies => fluencies))
 
     @student.save
@@ -31,7 +30,7 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find(params[:id])
-    @student.update(student_params)
+    @student.update(student_params.merge(:fluencies => fluencies))
 
 
     redirect_to student_path
@@ -41,14 +40,15 @@ class StudentsController < ApplicationController
 
   end
 
-  def fluencies
-    params[:student][:fluencies].reject{|e| e == "0"}.join(", ")
-  end
+
 
   private
   def student_params
     params.require(:student).permit(:name, :age, :admin)
   end
 
+  def fluencies
+    params[:student][:fluencies].reject{|e| e == "0"}.join(", ")
+  end
 
 end

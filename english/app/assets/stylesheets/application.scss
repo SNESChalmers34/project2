@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+}
+
+header{
+  nav{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  a{
+    font-size: 2rem;
+    color: black
+  }
+  #logo{
+    width: 50%;
+  }
+}
+
+#student{
+  p{
+    #student_name{
+      font-size: 5rem;
+    }
+  }
+}
+
+div{
+  #fluency{
+    font-size: 2rem;
+  }
+}

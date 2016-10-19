@@ -27,10 +27,12 @@ class ProficienciesController < ApplicationController
   end
 
   def update
+    @student = Student.find(params[:student_id])
+
     @proficiency = Proficiency.find(params[:id])
     @proficiency.update(proficiency_params)
 
-    redirect_to students_path
+    redirect_to student_path(@student)
 
   end
 

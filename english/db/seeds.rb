@@ -17,6 +17,6 @@ spanish = Language.create(language:"Spanish")
 french = Language.create(language:"French")
 
 Proficiency.create!([
-  {student:jonathan, admin:true},
+  {student:jonathan},
   {student:mark}
 ])

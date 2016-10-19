@@ -1,16 +1,28 @@
-<h2><%= @student.name %></h2>
+<div class="container">
 
-<%= link_to "Edit", edit_student_path %>
-<%= link_to "Add proficiency", new_student_proficiency_path(@student) %>
-
-
+<div id="student">
+  <p>
+    <% if @student.admin %>
+      <span id="student_name"><%= @student.name %>: Instructor</span>
+    <% else %>
+      <span id="student_name"><%= @student.name %>: Student</span>
+    <% end %>
+  <%= link_to "Edit", edit_student_path %>
+  <%= link_to "What do you Want To Learn?", new_student_proficiency_path(@student) %>
+  </p>
+</div>
 
 <div>
-<% @proficiencies.each do |proficiency| %>
-  <% if proficiency.want_to_learn%>
-    <p>Wants to Learn: <%= proficiency.language_learn %>
-    <%= link_to "Edit", edit_student_proficiency_path(@student, proficiency) %>
-    <%= link_to "Delete", student_proficiency_path(@student, proficiency), method: :delete %></p>
+  <p id="fluency">Fluent In: <%= @student.fluencies %></p>
+  <% @proficiencies.each do |proficiency| %>
+    <% if proficiency.want_to_learn%>
+      <p>Wants to Learn: <%= proficiency.language_learn %>
+      <%= link_to "Edit", edit_student_proficiency_path(@student, proficiency) %>
+      <%= link_to "Delete", student_proficiency_path(@student, proficiency), method: :delete %></p>
+      <p>Why are you wanting to learn <%= proficiency.language_learn %>? <%= proficiency.reason %></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+
+<!-- container div -->
 </div>
