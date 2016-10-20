@@ -1,14 +1,14 @@
 <div class="container">
-<h2>Instructors</h2>
+<h2>Instructors/Students</h2>
 
 <% @students.each do |student| %>
   <% if student.admin %>
     <div>
-      <p>Instructors: <%= link_to student.name, student_path(student) %></p>
+      <p>Instructor: <%= link_to student.name, student_path(student) %></p>
     </div>
   <% else %>
     <div>
-      <p>Students: <%= link_to student.name, student_path(student) %></p>
+      <p>Student: <%= link_to student.name, student_path(student) %></p>
     </div>
   <% end %>
 

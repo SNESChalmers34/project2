@@ -8,6 +8,7 @@
       <span id="student_name"><%= @student.name %>: Student</span>
     <% end %>
   <%= link_to "Edit", edit_student_path %>
+  <%= link_to "delete", student_path(@student), method: :delete %>
   <%= link_to "What do you Want To Learn?", new_student_proficiency_path(@student) %>
   </p>
 </div>
@@ -19,7 +20,8 @@
       <p>Wants to Learn: <%= proficiency.language_learn %>
       <%= link_to "Edit", edit_student_proficiency_path(@student, proficiency) %>
       <%= link_to "Delete", student_proficiency_path(@student, proficiency), method: :delete %></p>
-      <p>Why are you wanting to learn <%= proficiency.language_learn %>? <%= proficiency.reason %></p>
+      <p>Why are you wanting to learn <%= proficiency.language_learn %>?</p>
+        <p><%= proficiency.reason %></p>
     <% end %>
   <% end %>
 </div>
