@@ -1,24 +1,5 @@
-# README
+I used rails to create the application and html/css with some minimal bootstrap to style the pages.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I started by creating an ERD with students and instructors. This changed to a many-many relationship between students and languages with a proficiencies join table. Everyone became a student except for those who were set to "admin = true" who became instructors. The proficiencies join table took the languages from the languages table and students would say whether they are fluent in a language or wanted to learn a language. This provided some problems because a student could create duplicates. I then put fluencies in the students table and removed it from the proficiencies table. Now students would declare what language they were fluent in when creating their profile and then add what they wanted to learn as they edit their profile.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+No real unsolved problems at this point. CRUD is functional. Next steps are to install devise, at other important columns to tables and make the site more styled and functional.
